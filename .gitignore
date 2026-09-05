@@ -8,3 +8,7 @@
 **/__pycache__/
 **/*.db
 .venv/
+.venv/
+__pycache__/
+*.pyc
+.env
