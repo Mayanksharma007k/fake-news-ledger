@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./fake-news-ledger-backend
+    container_name: fake-news-ledger-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./fake-news-ledger-backend/.env
+    volumes:
+      - ledger_data:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./fake-news-ledger-frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    container_name: fake-news-ledger-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  ledger_data:
