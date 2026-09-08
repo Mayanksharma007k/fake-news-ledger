@@ -8,7 +8,10 @@ from app.config import settings
 app=FastAPI(title="Fake News Ledger API",version="1.0.0",
             description="AI evidence assessment with tamper-evident verification records.")
 
-origins = [item.strip() for item in settings.cors_origins.split(",") if item.strip()]
+origins = [
+    "https://fake-news-ledgerbymayank-8j5j5vfh4-mayanksharma007k.vercel.app",
+    "http://localhost:3000",
+]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
