@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     blockchain_rpc_url: str = ""
     contract_address: str = ""
     private_key: str = ""
-    cors_origins: str = "http://localhost:3000,localhost:3001,localhost:3002,https://fake-news-ledgerbymayank.vercel.app"
+    cors_origins: str = "http://localhost:3000,http://localhost:3001,http://localhost:3002,https://fake-news-ledgerbymayank.vercel.app,https://fake-news-ledgerbymayank-8j5i5vfh4-mayanksharma007k.vercel.app"
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 settings = Settings()
